@@ -1,0 +1,154 @@
+table elevage_etablissement
+	lineageTag: d6d604ad-4a45-4c52-b055-04c3de7dfd66
+
+	measure Nbr_etablissement_elevage = COUNTROWS(elevage_etablissement)
+		formatString: 0
+		lineageTag: 9787643a-6e3a-4248-8302-fdf8d5efbf86
+
+	column id
+		dataType: string
+		lineageTag: bcbcf773-19c8-4c4a-b4e1-be3db059fa02
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column geometry_type
+		dataType: string
+		lineageTag: 164f63fb-36a7-4a1a-ac13-b4597db26f8b
+		summarizeBy: none
+		sourceColumn: geometry_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column coordonnees
+		dataType: string
+		lineageTag: 13aef47d-b42c-4312-bc06-f39a5cd4109e
+		summarizeBy: none
+		sourceColumn: coordonnees
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_nom_bdd
+		dataType: string
+		lineageTag: 19d9bb2d-03bf-4db9-b8c2-64dcd9b08499
+		summarizeBy: none
+		sourceColumn: region_nom_bdd
+
+		annotation SummarizationSetBy = Automatic
+
+	column prefecture_nom_bdd
+		dataType: string
+		lineageTag: f3b5aeec-b8fa-4068-a2af-dfcf2b958c76
+		summarizeBy: none
+		sourceColumn: prefecture_nom_bdd
+
+		annotation SummarizationSetBy = Automatic
+
+	column commune_nom_bdd
+		dataType: string
+		lineageTag: 96c77103-ed3e-4134-a656-304d5b8595a4
+		summarizeBy: none
+		sourceColumn: commune_nom_bdd
+
+		annotation SummarizationSetBy = Automatic
+
+	column canton_nom_bdd
+		dataType: string
+		lineageTag: 19a5e369-ebb4-44dd-9998-06ff2a7cdc78
+		summarizeBy: none
+		sourceColumn: canton_nom_bdd
+
+		annotation SummarizationSetBy = Automatic
+
+	column nom_localite
+		dataType: string
+		lineageTag: c738714c-aba3-4456-91eb-be66fa92e357
+		summarizeBy: none
+		sourceColumn: nom_localite
+
+		annotation SummarizationSetBy = Automatic
+
+	column etab_nom
+		dataType: string
+		lineageTag: 22f648ba-582b-4084-94b2-6d06271cfc9a
+		summarizeBy: none
+		sourceColumn: etab_nom
+
+		annotation SummarizationSetBy = Automatic
+
+	column etab_adresse
+		dataType: string
+		lineageTag: 6b19abdd-ff7c-4da6-b094-40f104e2f6e1
+		summarizeBy: none
+		sourceColumn: etab_adresse
+
+		annotation SummarizationSetBy = Automatic
+
+	column etab_jour
+		dataType: string
+		lineageTag: f72a2b07-b838-4a2e-af04-3b87993589de
+		summarizeBy: none
+		sourceColumn: etab_jour
+
+		annotation SummarizationSetBy = Automatic
+
+	column etab_creation_date
+		dataType: string
+		lineageTag: 15515236-8b50-4658-92ac-e269412c8d85
+		summarizeBy: none
+		sourceColumn: etab_creation_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column activite_statut
+		dataType: string
+		lineageTag: 2aeaae7f-9c90-4829-98b5-acaf0b28dc18
+		summarizeBy: none
+		sourceColumn: activite_statut
+
+		annotation SummarizationSetBy = Automatic
+
+	column activite_categorie
+		dataType: string
+		lineageTag: b45729d1-5b1c-4289-8555-a7f39e333b60
+		summarizeBy: none
+		sourceColumn: activite_categorie
+
+		annotation SummarizationSetBy = Automatic
+
+	column toilette_type
+		dataType: string
+		lineageTag: 56cf3791-1c16-44d0-9037-9b18e9f73069
+		summarizeBy: none
+		sourceColumn: toilette_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code_pays
+		dataType: string
+		lineageTag: 7186d1a9-613b-47cc-843f-d6b59ca5e3b0
+		summarizeBy: none
+		sourceColumn: Code_pays
+
+		annotation SummarizationSetBy = Automatic
+
+	partition elevage_etablissement = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\MJ\MJ_consulting\Data community Togo\sept_joursC\file-Élevage - Établissements-30-06-2026 16_36_47.xlsx"), null, true),
+				    elevage_etablissement_Sheet = Source{[Item="elevage_etablissement",Kind="Sheet"]}[Data],
+				    #"Type modifié" = Table.TransformColumnTypes(elevage_etablissement_Sheet,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}, {"Column6", type text}, {"Column7", type text}, {"Column8", type text}, {"Column9", type text}, {"Column10", type text}, {"Column11", type text}, {"Column12", type text}, {"Column13", type text}, {"Column14", type text}, {"Column15", type text}}),
+				    #"En-têtes promus" = Table.PromoteHeaders(#"Type modifié", [PromoteAllScalars=true]),
+				    #"Type modifié1" = Table.TransformColumnTypes(#"En-têtes promus",{{"id", type text}, {"geometry_type", type text}, {"coordonnees", type text}, {"region_nom_bdd", type text}, {"prefecture_nom_bdd", type text}, {"commune_nom_bdd", type text}, {"canton_nom_bdd", type text}, {"nom_localite", type text}, {"etab_nom", type text}, {"etab_adresse", type text}, {"etab_jour", type text}, {"etab_creation_date", type text}, {"activite_statut", type text}, {"activite_categorie", type text}, {"toilette_type", type text}}),
+				    #"Duplication de la colonne" = Table.DuplicateColumn(#"Type modifié1", "geometry_type", "geometry_type - Copier"),
+				    #"Colonnes renommées" = Table.RenameColumns(#"Duplication de la colonne",{{"geometry_type - Copier", "Code_pays"}}),
+				    #"Valeur remplacée" = Table.ReplaceValue(#"Colonnes renommées","Polygon","TGO",Replacer.ReplaceText,{"Code_pays"})
+				in
+				    #"Valeur remplacée"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

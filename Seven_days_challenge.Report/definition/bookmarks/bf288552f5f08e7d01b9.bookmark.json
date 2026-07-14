@@ -1,0 +1,881 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.0.0/schema.json",
+  "displayName": "Binanh",
+  "name": "bf288552f5f08e7d01b9",
+  "options": {
+    "targetVisualNames": [
+      "2845c6aa36e94e51e6f3"
+    ]
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "b98912f73bc6e8b134ed",
+    "sections": {
+      "b98912f73bc6e8b134ed": {
+        "visualContainers": {
+          "3b5f8af2a600f5e946ee": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b4c9ec333fc5855462dd",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "abattoirs"
+                        }
+                      },
+                      "Property": "canton_nom_bdd"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7fac7c5b98bce637abfa",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "abattoirs"
+                        }
+                      },
+                      "Property": "Nbr_abattoirs"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredBarChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "abattoirs"
+                        }
+                      },
+                      "Property": "Nbr_abattoirs"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "abattoirs"
+                        }
+                      },
+                      "Property": "canton_nom_bdd"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "d6d104fc78a76af5af3f": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "53ceebb5cecda380cff9",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "digues_petits_barrages"
+                        }
+                      },
+                      "Property": "canton_nom_bdd"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "96b91d501ef49a0fd8fb",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "digues_petits_barrages"
+                        }
+                      },
+                      "Property": "Nbr_digues_petis_barrages"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredBarChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "digues_petits_barrages"
+                        }
+                      },
+                      "Property": "Nbr_digues_petis_barrages"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "digues_petits_barrages"
+                        }
+                      },
+                      "Property": "canton_nom_bdd"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "9f5846ef2d387b237da6": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "fac6c8021e7db1f80364",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "elevage_etablissement"
+                        }
+                      },
+                      "Property": "Nbr_etablissement_elevage"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "27d72779872f60ca020a",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "elevage_etablissement"
+                        }
+                      },
+                      "Property": "canton_nom_bdd"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredBarChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "elevage_etablissement"
+                        }
+                      },
+                      "Property": "Nbr_etablissement_elevage"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "elevage_etablissement"
+                        }
+                      },
+                      "Property": "canton_nom_bdd"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "4b2fef4744f2228a7877": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "bfac80561461df6a8ec6",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "REC"
+                        }
+                      },
+                      "Property": "Nbr_retenu_eau_collinaire"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "dea34f694cb454a2ddd1",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "REC"
+                        }
+                      },
+                      "Property": "canton_nom_bdd"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredBarChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "REC"
+                        }
+                      },
+                      "Property": "Nbr_retenu_eau_collinaire"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "REC"
+                        }
+                      },
+                      "Property": "canton_nom_bdd"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "edfa65d65099b8f5c37b": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "724b91938e38f425df36",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "zone_pisciculture"
+                        }
+                      },
+                      "Property": "Nbr_zone_pisciculture"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e2c4d865ed3501155f43",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "zone_pisciculture"
+                        }
+                      },
+                      "Property": "canton_nom_bdd"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredBarChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "zone_pisciculture"
+                        }
+                      },
+                      "Property": "Nbr_zone_pisciculture"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "zone_pisciculture"
+                        }
+                      },
+                      "Property": "canton_nom_bdd"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "e760d7f861a0203659a2": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "9ec9853a0b1c87302cd6",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "cantons"
+                        }
+                      },
+                      "Property": "% Cantons avec Abattoirs"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "cantons"
+                        }
+                      },
+                      "Property": "% Cantons avec Abattoirs"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "ced9c3d1eb9f25d8a82c": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "76db2d3ec3bd332b6ae8",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "cantons"
+                        }
+                      },
+                      "Property": "Cantons avec digues et petis barrages"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "cantons"
+                        }
+                      },
+                      "Property": "Cantons avec digues et petis barrages"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "e69012ef8577a5491410": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "080234ae86ec07dfeffa",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "cantons"
+                        }
+                      },
+                      "Property": "% Cantons avec zone pisciculture"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "cantons"
+                        }
+                      },
+                      "Property": "% Cantons avec zone pisciculture"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "259a0ac5cef4eff9610a": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "4b87dcc11c7de15387a3",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "cantons"
+                        }
+                      },
+                      "Property": "Cantons avec etablissement d'elevage"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "cantons"
+                        }
+                      },
+                      "Property": "Cantons avec etablissement d'elevage"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "6a24b4bc3b525581fba4": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "da641446b11c58d93645",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "cantons"
+                        }
+                      },
+                      "Property": "Cantons avec retenu d'eau collinaires"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "cantons"
+                        }
+                      },
+                      "Property": "Cantons avec retenu d'eau collinaires"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "831e087c1b2ce07821e1": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "e194874fd69581fa5f02",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "cantons"
+                        }
+                      },
+                      "Property": "region_nom_bdd"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "c",
+                                "Entity": "cantons",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "In": {
+                                    "Expressions": [
+                                      {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Source": "c"
+                                            }
+                                          },
+                                          "Property": "region_nom_bdd"
+                                        }
+                                      }
+                                    ],
+                                    "Values": [
+                                      [
+                                        {
+                                          "Literal": {
+                                            "Value": "'Kara'"
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "cantons"
+                        }
+                      },
+                      "Property": "region_nom_bdd"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "5dcbe8565637994953a1": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "4b9ee29054f7cdf2e7c0",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "cantons"
+                        }
+                      },
+                      "Property": "prefecture_nom_bdd"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "c",
+                                "Entity": "cantons",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "In": {
+                                    "Expressions": [
+                                      {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Source": "c"
+                                            }
+                                          },
+                                          "Property": "prefecture_nom_bdd"
+                                        }
+                                      }
+                                    ],
+                                    "Values": [
+                                      [
+                                        {
+                                          "Literal": {
+                                            "Value": "'Binah'"
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "cantons"
+                        }
+                      },
+                      "Property": "prefecture_nom_bdd"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "508cbe9c6c617f65e742": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "2b39c4bb3682ee40b402",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "cantons"
+                        }
+                      },
+                      "Property": "commune_nom_bdd"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "cantons"
+                        }
+                      },
+                      "Property": "commune_nom_bdd"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "ade7a9929c654c06c7da": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d0f165c579e96c85f1a7",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "cantons"
+                        }
+                      },
+                      "Property": "Total_cantons"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "cantons"
+                        }
+                      },
+                      "Property": "Total_cantons"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

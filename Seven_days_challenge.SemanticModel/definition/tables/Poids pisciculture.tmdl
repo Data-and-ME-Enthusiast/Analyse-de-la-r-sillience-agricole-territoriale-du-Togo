@@ -1,0 +1,28 @@
+table 'Poids pisciculture'
+	lineageTag: 720cf990-6520-4c7e-b27d-00012aca0d63
+
+	measure 'Valeur Poids pisciculture' = SELECTEDVALUE('Poids pisciculture'[Poids pisciculture], 0.15)
+		lineageTag: 56fe9c18-b5a4-48d2-a66e-62f7033c4def
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Poids pisciculture'
+		lineageTag: ccf54a41-ab37-4494-8366-97f6cbeefe40
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Poids pisciculture' = calculated
+		mode: import
+		source = GENERATESERIES(0, 1, 0.05)
+
+	annotation PBI_Id = 8bc225d2031e4ddab9210ee43b1de08b
+

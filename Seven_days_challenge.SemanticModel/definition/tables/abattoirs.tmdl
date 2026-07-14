@@ -1,0 +1,142 @@
+table abattoirs
+	lineageTag: 00862f32-064c-4d7e-b674-8ccc55eeac27
+
+	measure Nbr_abattoirs = COUNTROWS(abattoirs)
+		formatString: 0
+		lineageTag: fa038781-89c7-43fe-80a7-ab3d2d3422f6
+
+	column id
+		dataType: string
+		lineageTag: f89f6280-8b31-420a-9ed6-0253d4e03612
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column geometry_type
+		dataType: string
+		lineageTag: 7f50515d-ec38-4736-8d0d-1a10d7d816b5
+		summarizeBy: none
+		sourceColumn: geometry_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'coordonnees.1'
+		dataType: double
+		lineageTag: b7c9bb38-9263-488d-a52e-d144f920c8d0
+		summarizeBy: sum
+		sourceColumn: coordonnees.1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'coordonnees.2'
+		dataType: double
+		lineageTag: 934dde26-d483-4f40-bca9-acfccdeb430f
+		summarizeBy: sum
+		sourceColumn: coordonnees.2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column region_nom_bdd
+		dataType: string
+		lineageTag: 55c6c6fc-66a9-4f65-84bf-8975f5c08c2d
+		summarizeBy: none
+		sourceColumn: region_nom_bdd
+
+		annotation SummarizationSetBy = Automatic
+
+	column prefecture_nom_bdd
+		dataType: string
+		lineageTag: b2e7d7a4-0ca9-460f-be0f-8e21d50e44c2
+		summarizeBy: none
+		sourceColumn: prefecture_nom_bdd
+
+		annotation SummarizationSetBy = Automatic
+
+	column commune_nom_bdd
+		dataType: string
+		lineageTag: c7590341-2be4-42ab-baae-c0f2c9acccea
+		summarizeBy: none
+		sourceColumn: commune_nom_bdd
+
+		annotation SummarizationSetBy = Automatic
+
+	column canton_nom_bdd
+		dataType: string
+		lineageTag: 67ed5cf9-32ca-4b94-b331-99298fcca7b8
+		summarizeBy: none
+		sourceColumn: canton_nom_bdd
+
+		annotation SummarizationSetBy = Automatic
+
+	column abattoir_nom
+		dataType: string
+		lineageTag: 3a27f44f-3f2d-4615-8266-e760ef604acd
+		summarizeBy: none
+		sourceColumn: abattoir_nom
+
+		annotation SummarizationSetBy = Automatic
+
+	column abattoir_type
+		dataType: string
+		lineageTag: 08a8ccf2-5b39-4ba5-ab1d-8057dc9bec24
+		summarizeBy: none
+		sourceColumn: abattoir_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column organisme
+		dataType: string
+		lineageTag: c213fb6a-ca74-4fff-a6f2-e5905f3afec9
+		summarizeBy: none
+		sourceColumn: organisme
+
+		annotation SummarizationSetBy = Automatic
+
+	column batiment_fonction
+		dataType: string
+		lineageTag: 6f998686-0ebb-475e-9eb5-6a917bfffd65
+		summarizeBy: none
+		sourceColumn: batiment_fonction
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code_pays
+		dataType: string
+		lineageTag: fd620010-8c76-4bc6-86fc-f95384a510d3
+		summarizeBy: none
+		sourceColumn: Code_pays
+
+		annotation SummarizationSetBy = Automatic
+
+	partition abattoirs = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\MJ\MJ_consulting\Data community Togo\sept_joursC\file-Abattoirs - Établissements-30-06-2026 16_37_17.xlsx"), null, true),
+				    abattoirs_Sheet = Source{[Item="abattoirs",Kind="Sheet"]}[Data],
+				    #"Type modifié" = Table.TransformColumnTypes(abattoirs_Sheet,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}, {"Column6", type text}, {"Column7", type text}, {"Column8", type text}, {"Column9", type text}, {"Column10", type text}, {"Column11", type text}}),
+				    #"En-têtes promus" = Table.PromoteHeaders(#"Type modifié", [PromoteAllScalars=true]),
+				    #"Type modifié1" = Table.TransformColumnTypes(#"En-têtes promus",{{"id", type text}, {"geometry_type", type text}, {"coordonnees", type text}, {"region_nom_bdd", type text}, {"prefecture_nom_bdd", type text}, {"commune_nom_bdd", type text}, {"canton_nom_bdd", type text}, {"abattoir_nom", type text}, {"abattoir_type", type text}, {"organisme", type text}, {"batiment_fonction", type text}}),
+				    #"Fractionner la colonne par délimiteur" = Table.SplitColumn(#"Type modifié1", "coordonnees", Splitter.SplitTextByDelimiter(",", QuoteStyle.Csv), {"coordonnees.1", "coordonnees.2"}),
+				    #"Type modifié2" = Table.TransformColumnTypes(#"Fractionner la colonne par délimiteur",{{"coordonnees.1", type text}, {"coordonnees.2", type text}}),
+				    #"Valeur remplacée" = Table.ReplaceValue(#"Type modifié2","[","",Replacer.ReplaceText,{"coordonnees.1"}),
+				    #"Valeur remplacée1" = Table.ReplaceValue(#"Valeur remplacée",".",",",Replacer.ReplaceText,{"coordonnees.1"}),
+				    #"Type modifié3" = Table.TransformColumnTypes(#"Valeur remplacée1",{{"coordonnees.1", type number}}),
+				    #"Valeur remplacée2" = Table.ReplaceValue(#"Type modifié3",".",",",Replacer.ReplaceText,{"coordonnees.2"}),
+				    #"Valeur remplacée3" = Table.ReplaceValue(#"Valeur remplacée2","]","",Replacer.ReplaceText,{"coordonnees.2"}),
+				    #"Type modifié4" = Table.TransformColumnTypes(#"Valeur remplacée3",{{"coordonnees.2", type number}, {"coordonnees.1", type number}}),
+				    #"Duplication de la colonne" = Table.DuplicateColumn(#"Type modifié4", "geometry_type", "geometry_type - Copier"),
+				    #"Colonnes renommées" = Table.RenameColumns(#"Duplication de la colonne",{{"geometry_type - Copier", "Code_pays"}}),
+				    #"Valeur remplacée4" = Table.ReplaceValue(#"Colonnes renommées","Point","TGO",Replacer.ReplaceText,{"Code_pays"})
+				in
+				    #"Valeur remplacée4"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

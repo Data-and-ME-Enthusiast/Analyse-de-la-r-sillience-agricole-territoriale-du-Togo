@@ -1,0 +1,122 @@
+table REC
+	lineageTag: b20905ad-fe44-43a9-b037-7a39b3e9d39f
+
+	measure Nbr_retenu_eau_collinaire = COUNTROWS(REC)
+		formatString: 0
+		lineageTag: 30957a11-480d-4c20-a570-cc278c48feff
+
+	column id
+		dataType: string
+		lineageTag: 3140afc3-d042-49ef-8c70-e80ecd904f46
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column geometry_type
+		dataType: string
+		lineageTag: 1b99b754-cc04-48d0-a17f-7c5e824e357b
+		summarizeBy: none
+		sourceColumn: geometry_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column coordonnees
+		dataType: string
+		lineageTag: fa40f425-ce6c-4967-aabb-58cbeade3be0
+		summarizeBy: none
+		sourceColumn: coordonnees
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_nom_bdd
+		dataType: string
+		lineageTag: 8cec4cb5-0553-4d91-9861-1162dbf65503
+		summarizeBy: none
+		sourceColumn: region_nom_bdd
+
+		annotation SummarizationSetBy = Automatic
+
+	column prefecture_nom_bdd
+		dataType: string
+		lineageTag: fd9f5d70-9d49-48a9-a419-3fcc2b45ba3e
+		summarizeBy: none
+		sourceColumn: prefecture_nom_bdd
+
+		annotation SummarizationSetBy = Automatic
+
+	column commune_nom_bdd
+		dataType: string
+		lineageTag: 93a7c372-9db8-40c5-8f7c-ce68adc2485e
+		summarizeBy: none
+		sourceColumn: commune_nom_bdd
+
+		annotation SummarizationSetBy = Automatic
+
+	column canton_nom_bdd
+		dataType: string
+		lineageTag: b8f15640-3546-437c-8770-5acaa6e7074e
+		summarizeBy: none
+		sourceColumn: canton_nom_bdd
+
+		annotation SummarizationSetBy = Automatic
+
+	column village
+		dataType: string
+		lineageTag: 80ad5997-4c2c-4252-b36b-3577dc16ac9c
+		summarizeBy: none
+		sourceColumn: village
+
+		annotation SummarizationSetBy = Automatic
+
+	column barrage_nom_officiel
+		dataType: string
+		lineageTag: 2d17f3e3-a9d5-4159-9c4f-0641efae4d32
+		summarizeBy: none
+		sourceColumn: barrage_nom_officiel
+
+		annotation SummarizationSetBy = Automatic
+
+	column barrage_type
+		dataType: string
+		lineageTag: 8d35383f-c90c-4983-920b-a4f7bba44c98
+		summarizeBy: none
+		sourceColumn: barrage_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column barrage_utilisation
+		dataType: string
+		lineageTag: 292e04f7-f9e6-4fa1-9535-9aa169463a68
+		summarizeBy: none
+		sourceColumn: barrage_utilisation
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code_pays
+		dataType: string
+		lineageTag: 4c3ac553-fa88-4632-9ced-12f0b39abd83
+		summarizeBy: none
+		sourceColumn: Code_pays
+
+		annotation SummarizationSetBy = Automatic
+
+	partition REC = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\MJ\MJ_consulting\Data community Togo\sept_joursC\file-Retenues d'eau collinaires-30-06-2026 16_38_14.xlsx"), null, true),
+				    REC_Sheet = Source{[Item="REC",Kind="Sheet"]}[Data],
+				    #"Type modifié" = Table.TransformColumnTypes(REC_Sheet,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}, {"Column6", type text}, {"Column7", type text}, {"Column8", type text}, {"Column9", type text}, {"Column10", type text}, {"Column11", type text}}),
+				    #"En-têtes promus" = Table.PromoteHeaders(#"Type modifié", [PromoteAllScalars=true]),
+				    #"Type modifié1" = Table.TransformColumnTypes(#"En-têtes promus",{{"id", type text}, {"geometry_type", type text}, {"coordonnees", type text}, {"region_nom_bdd", type text}, {"prefecture_nom_bdd", type text}, {"commune_nom_bdd", type text}, {"canton_nom_bdd", type text}, {"village", type text}, {"barrage_nom_officiel", type text}, {"barrage_type", type text}, {"barrage_utilisation", type text}}),
+				    #"Duplication de la colonne" = Table.DuplicateColumn(#"Type modifié1", "geometry_type", "geometry_type - Copier"),
+				    #"Colonnes renommées" = Table.RenameColumns(#"Duplication de la colonne",{{"geometry_type - Copier", "Code_pays"}}),
+				    #"Valeur remplacée" = Table.ReplaceValue(#"Colonnes renommées","MultiPolygon","TGO",Replacer.ReplaceText,{"Code_pays"})
+				in
+				    #"Valeur remplacée"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

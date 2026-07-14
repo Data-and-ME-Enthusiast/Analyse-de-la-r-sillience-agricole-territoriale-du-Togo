@@ -1,0 +1,271 @@
+table cantons
+	lineageTag: 80097806-5d2d-4467-bcdb-1097c1a537fb
+
+	measure Total_cantons = DISTINCTCOUNTNOBLANK(cantons[canton_nom_bdd])
+		formatString: 0
+		lineageTag: 19a8f55d-8ee8-4ad9-9acd-f211507efe4f
+
+	measure '% Cantons avec Abattoirs' =
+			
+			DIVIDE(
+			    DISTINCTCOUNT(abattoirs[canton_nom_bdd]),
+			    [Total_cantons],
+			    0
+			)
+		lineageTag: ed8f3384-c3bf-4da2-9b19-b55d26fe274a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cantons avec digues et petis barrages' =
+			
+			DIVIDE(
+			    DISTINCTCOUNT(digues_petits_barrages[canton_nom_bdd]),
+			    [Total_cantons],
+			    0
+			)
+		lineageTag: 19d0a76d-7480-4204-b1d2-4db72f446d9e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cantons avec etablissement d''elevage' =
+			
+			DIVIDE(
+			    DISTINCTCOUNT(elevage_etablissement[canton_nom_bdd]),
+			    [Total_cantons],
+			    0
+			)
+		lineageTag: fd07396f-8446-43fc-9032-bb1d16aff545
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cantons avec retenu d''eau collinaires' =
+			
+			DIVIDE(
+			    DISTINCTCOUNTNOBLANK(REC[canton_nom_bdd]),
+			    [Total_cantons],
+			    0
+			)
+		lineageTag: 311d3d64-f9db-4a60-a904-211a98b0d9a6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% Cantons avec zone pisciculture' =
+			
+			DIVIDE(
+			    DISTINCTCOUNT(zone_pisciculture[canton_nom_bdd]),
+			    [Total_cantons],
+			    0
+			)
+		lineageTag: 8707f607-6364-47f9-bfa1-ffab4144b35a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Nb_Eau =
+			
+			CALCULATE(
+			    COUNTROWS(REC) + COUNTROWS(digues_petits_barrages)
+			) + 0
+		formatString: 0
+		lineageTag: 8cb48112-bc31-4e2a-8f5f-c5a75d3b0958
+
+	measure Nb_Elevage =
+			
+			CALCULATE(COUNTROWS(elevage_etablissement)) + 0
+		formatString: 0
+		lineageTag: 50b6c862-4165-4cca-89aa-c8ee6a33a64c
+
+	measure Nb_Abattoirs =
+			
+			CALCULATE(COUNTROWS(abattoirs)) + 0
+		formatString: 0
+		lineageTag: b447e923-395b-4c4c-801d-fa70d5c07948
+
+	measure Nb_Pisciculture =
+			
+			CALCULATE(COUNTROWS(zone_pisciculture)) + 0
+		formatString: 0
+		lineageTag: ef4ec5e2-018d-40d5-babc-a606eacad89a
+
+	measure Norm_Eau =
+			
+			VAR MinEau = CALCULATE(MINX(ALL(cantons[canton_nom_bdd]), [Nb_Eau]))
+			VAR MaxEau = CALCULATE(MAXX(ALL(cantons[canton_nom_bdd]), [Nb_Eau]))
+			VAR ValCanton = [Nb_Eau]
+			RETURN
+			    DIVIDE(ValCanton - MinEau, MaxEau - MinEau, 0)
+		lineageTag: 194211c9-68ef-4aef-a401-cc30475514ec
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Norm_abattoirs =
+			
+			VAR MinEau = CALCULATE(MINX(ALL(cantons[canton_nom_bdd]), [Nb_Abattoirs]))
+			VAR MaxEau = CALCULATE(MAXX(ALL(cantons[canton_nom_bdd]), [Nb_Abattoirs]))
+			VAR ValCanton = [Nb_Abattoirs]
+			RETURN
+			    DIVIDE(ValCanton - MinEau, MaxEau - MinEau, 0)
+		lineageTag: 6197a384-5e70-4f01-bb7a-a0044ee3e623
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Norm_elevage =
+			
+			VAR MinEau = CALCULATE(MINX(ALL(cantons[canton_nom_bdd]), [Nb_Elevage]))
+			VAR MaxEau = CALCULATE(MAXX(ALL(cantons[canton_nom_bdd]), [Nb_Elevage]))
+			VAR ValCanton = [Nb_Elevage]
+			RETURN
+			    DIVIDE(ValCanton - MinEau, MaxEau - MinEau, 0)
+		lineageTag: 6bf9e53a-8f03-44bc-bd97-0567bcb9a4c5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Norm_pisciculture =
+			
+			VAR MinEau = CALCULATE(MINX(ALL(cantons[canton_nom_bdd]), [Nb_Pisciculture]))
+			VAR MaxEau = CALCULATE(MAXX(ALL(cantons[canton_nom_bdd]), [Nb_Pisciculture]))
+			VAR ValCanton = [Nb_Pisciculture]
+			RETURN
+			    DIVIDE(ValCanton - MinEau, MaxEau - MinEau, 0)
+		lineageTag: d95983bd-dc67-48c3-9b5d-640203c317cc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Indice_Resilience =
+			
+			VAR P_Eau = 'Poids eau'[Valeur Poids eau]
+			VAR P_Elevage = 'Poids elevage'[Valeur Poids elevage]
+			VAR P_Abattoirs = 'Poids abattoir'[Valeur Poids abattoir]
+			VAR P_Pisciculture = 'Poids pisciculture'[Valeur Poids pisciculture]
+			VAR SommePoids = P_Eau + P_Elevage + P_Abattoirs + P_Pisciculture
+			RETURN
+			
+			    IF(
+			        SommePoids = 0,
+			        0,
+			        ( [Norm_Eau] * P_Eau +
+			          [Norm_Elevage] * P_Elevage +
+			          [Norm_Abattoirs] * P_Abattoirs +
+			          [Norm_Pisciculture] * P_Pisciculture ) / SommePoids
+			    )
+		lineageTag: ac00981b-8faa-4068-9e46-4f768ac54e24
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Score_Investissement = ```
+			
+			(1 - [Indice_Resilience]) * 'Poids vul'[Valeur Poids vul]
+			+ 
+			( [Norm_Eau] + [Norm_elevage] + [Norm_abattoirs] + [Norm_pisciculture] ) / 4
+			* 'Poids potentiel'[Valeur Poids potentiel]
+			```
+		lineageTag: 98dc0805-2fdb-4f3a-bcc3-056c5beabad3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Resilience_Nationale =
+			
+			AVERAGEX('cantons', [Indice_Resilience])
+		lineageTag: 4f9dc8f4-b63b-41ad-93c2-26f92642b12a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Score_National Invest' =
+			
+			AVERAGEX('cantons', [Score_Investissement])
+		lineageTag: 8e8b30aa-7d5f-44d9-9ef7-1e976d3b996d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cantons plus vulnerables' =
+			
+			COUNTROWS(
+			    FILTER(
+			        ALL('cantons'),
+			        [Indice_Resilience] = 0
+			    )
+			)
+		formatString: 0
+		lineageTag: 61006073-adeb-4b12-918a-9218f044b4bf
+
+	column canton_nom_bdd
+		lineageTag: 2e4cde51-620c-4fb7-9cf3-cd3f531b15f3
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [canton_nom_bdd]
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_nom_bdd
+		lineageTag: 9b555a6e-43ee-4f9a-9760-513c2a2d3ca5
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [region_nom_bdd]
+
+		annotation SummarizationSetBy = Automatic
+
+	column prefecture_nom_bdd
+		lineageTag: 0188ecaf-b8b5-425f-a359-f19aa62b8447
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [prefecture_nom_bdd]
+
+		annotation SummarizationSetBy = Automatic
+
+	column commune_nom_bdd
+		lineageTag: 86aa62df-481e-41f2-b9f9-8350d348c7f7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [commune_nom_bdd]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition cantons = calculated
+		mode: import
+		source =
+				
+				SUMMARIZE(
+				    UNION(
+				        SELECTCOLUMNS(
+				            elevage_etablissement,
+				            "canton_nom_bdd", elevage_etablissement[canton_nom_bdd],
+				            "region_nom_bdd", elevage_etablissement[region_nom_bdd],
+				            "prefecture_nom_bdd", elevage_etablissement[prefecture_nom_bdd],
+				            "commune_nom_bdd", elevage_etablissement[commune_nom_bdd]
+				        ),
+				        SELECTCOLUMNS(
+				            abattoirs,
+				            "canton_nom_bdd", abattoirs[canton_nom_bdd],
+				            "region_nom_bdd", abattoirs[region_nom_bdd],
+				            "prefecture_nom_bdd", abattoirs[prefecture_nom_bdd],
+				            "commune_nom_bdd", abattoirs[commune_nom_bdd]
+				        ),
+				        SELECTCOLUMNS(
+				            REC,
+				            "canton_nom_bdd", REC[canton_nom_bdd],
+				            "region_nom_bdd", REC[region_nom_bdd],
+				            "prefecture_nom_bdd", REC[prefecture_nom_bdd],
+				            "commune_nom_bdd", REC[commune_nom_bdd]
+				        ),
+				        SELECTCOLUMNS(
+				            zone_pisciculture,
+				            "canton_nom_bdd", zone_pisciculture[canton_nom_bdd],
+				            "region_nom_bdd", zone_pisciculture[region_nom_bdd],
+				            "prefecture_nom_bdd", zone_pisciculture[prefecture_nom_bdd],
+				            "commune_nom_bdd", zone_pisciculture[commune_nom_bdd]
+				        ),
+				        SELECTCOLUMNS(
+				            digues_petits_barrages,
+				            "canton_nom_bdd", digues_petits_barrages[canton_nom_bdd],
+				            "region_nom_bdd", digues_petits_barrages[region_nom_bdd],
+				            "prefecture_nom_bdd", digues_petits_barrages[prefecture_nom_bdd],
+				            "commune_nom_bdd", digues_petits_barrages[commune_nom_bdd]
+				        )
+				    ),
+				    [canton_nom_bdd],
+				    [region_nom_bdd],
+				    [prefecture_nom_bdd],
+				    [commune_nom_bdd]
+				)
+
+	annotation PBI_Id = 3d9ea3ab007946b3a7ccd3846078da00
+

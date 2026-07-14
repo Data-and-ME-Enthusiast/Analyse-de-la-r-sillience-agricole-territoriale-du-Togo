@@ -1,0 +1,243 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 759.58902019343964,
+        "y": 196.57533724014073
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "abattoirs",
+          "nodeLineageTag": "00862f32-064c-4d7e-b674-8ccc55eeac27",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 284,
+            "y": 0
+          },
+          "nodeIndex": "elevage_etablissement",
+          "nodeLineageTag": "d6d604ad-4a45-4c52-b055-04c3de7dfd66",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 575.63013698630141,
+            "y": 3.0821917808219119
+          },
+          "nodeIndex": "REC",
+          "nodeLineageTag": "b20905ad-fe44-43a9-b037-7a39b3e9d39f",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 865.20547945205487,
+            "y": 0
+          },
+          "nodeIndex": "zone_pisciculture",
+          "nodeLineageTag": "8a47697c-3a25-44e2-88bd-74f0ee11e103",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 1195.8767123287671,
+            "y": 15.027397260273979
+          },
+          "nodeIndex": "agriculture-sylviculture-et-peche-valeur-ajoutee-de-croissance-annuelle-",
+          "nodeLineageTag": "3561776a-5e97-4a74-8954-e5626b40a86a",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 1504.5342465753426,
+            "y": 12.972602739726028
+          },
+          "nodeIndex": "agriculture-sylviculture-et-peche-valeur-ajoutee-du-pib-",
+          "nodeLineageTag": "03146d6a-5354-41c4-8a67-ba473287e123",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 1865.5890410958905,
+            "y": 12.972602739726028
+          },
+          "nodeIndex": "agriculture-sylviculture-et-peche-valeur-ajoutee-en-dollars-us-constants-de-2015",
+          "nodeLineageTag": "d503c42e-0f75-4c3b-8651-20cb968e8ca6",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 2213.2876712328766,
+            "y": 11.945205479452056
+          },
+          "nodeIndex": "agriculture-sylviculture-et-peche-valeur-ajoutee-par-travailleur-en-dollars-cons",
+          "nodeLineageTag": "8b130206-df67-4a5f-9594-cba20b6c305d",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 1656.5342047704407,
+            "y": 293.83561643835611
+          },
+          "nodeIndex": "agriculture rural development i",
+          "nodeLineageTag": "bf9037a9-8b11-4374-b77f-846a46bacb27",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 220.67131648651576,
+            "y": 345.20547945205482
+          },
+          "nodeIndex": "digues_petits_barrages",
+          "nodeLineageTag": "6fcd742a-6720-437b-9108-da39a14597fc",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 759.46558620505118,
+            "y": 369.86301369863014
+          },
+          "nodeIndex": "cantons",
+          "nodeLineageTag": "80097806-5d2d-4467-bcdb-1097c1a537fb",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 2497.2876712328766,
+            "y": 196.60273972602738
+          },
+          "nodeIndex": "Poids eau",
+          "nodeLineageTag": "387e7ce2-0eeb-4483-a09c-7be109e3a09c",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2781.2876712328766,
+            "y": 196.60273972602738
+          },
+          "nodeIndex": "Poids abattoir",
+          "nodeLineageTag": "e5dda913-146a-44b8-bd7e-c20128b8df87",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3065.2876712328766,
+            "y": 196.60273972602738
+          },
+          "nodeIndex": "Poids elevage",
+          "nodeLineageTag": "796de2f3-360c-4d9a-a1f5-38d5770bb17c",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3349.2876712328766,
+            "y": 196.60273972602738
+          },
+          "nodeIndex": "Poids pisciculture",
+          "nodeLineageTag": "720cf990-6520-4c7e-b27d-00012aca0d63",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3633.2876712328766,
+            "y": 0
+          },
+          "nodeIndex": "Poids vul",
+          "nodeLineageTag": "1c8b416f-2f34-4226-bf85-89fe0f3bd5b8",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3917.2876712328766,
+            "y": 196.60273972602738
+          },
+          "nodeIndex": "Poids potentiel",
+          "nodeLineageTag": "4f63cf94-2716-4c81-a1ec-34cd34980e65",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Toutes les tables",
+      "zoomValue": 97.333333333333343,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Toutes les tables",
+  "defaultDiagram": "Toutes les tables"
+}

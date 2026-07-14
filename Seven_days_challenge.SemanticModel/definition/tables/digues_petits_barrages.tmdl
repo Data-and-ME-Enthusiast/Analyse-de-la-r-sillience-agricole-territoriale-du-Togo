@@ -1,0 +1,90 @@
+table digues_petits_barrages
+	lineageTag: 6fcd742a-6720-437b-9108-da39a14597fc
+
+	measure Nbr_digues_petis_barrages = COUNTROWS(digues_petits_barrages)
+		formatString: 0
+		lineageTag: e25ebcf0-cbba-4a45-9222-b4cc155624fd
+
+	column id
+		dataType: string
+		lineageTag: 23f5cb04-31b8-4e86-a190-ae0369d63e92
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column geometry_type
+		dataType: string
+		lineageTag: f20bafb1-e3c4-40db-92b6-f3e656e34b8e
+		summarizeBy: none
+		sourceColumn: geometry_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column coordonnees
+		dataType: string
+		lineageTag: 8619b0d3-0f85-4cf9-bb43-572e6462b827
+		summarizeBy: none
+		sourceColumn: coordonnees
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_nom_bdd
+		dataType: string
+		lineageTag: fc30be79-bf3c-47ff-8b7e-bf5205c458b2
+		summarizeBy: none
+		sourceColumn: region_nom_bdd
+
+		annotation SummarizationSetBy = Automatic
+
+	column prefecture_nom_bdd
+		dataType: string
+		lineageTag: d31a8938-fa88-4235-9c65-19cf764a772a
+		summarizeBy: none
+		sourceColumn: prefecture_nom_bdd
+
+		annotation SummarizationSetBy = Automatic
+
+	column commune_nom_bdd
+		dataType: string
+		lineageTag: def00d65-babc-4b80-9b1f-ecb5095f882d
+		summarizeBy: none
+		sourceColumn: commune_nom_bdd
+
+		annotation SummarizationSetBy = Automatic
+
+	column canton_nom_bdd
+		dataType: string
+		lineageTag: 80e68714-7776-48e2-91d1-b84c2c36dab4
+		summarizeBy: none
+		sourceColumn: canton_nom_bdd
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code_pays
+		dataType: string
+		lineageTag: d84e3735-4b10-4020-85aa-7d91e1f47460
+		summarizeBy: none
+		sourceColumn: Code_pays
+
+		annotation SummarizationSetBy = Automatic
+
+	partition digues_petits_barrages = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\MJ\MJ_consulting\Data community Togo\sept_joursC\file-Digues et petits barrages-03-07-2026 07_02_48.xlsx"), null, true),
+				    data_Sheet = Source{[Item="data",Kind="Sheet"]}[Data],
+				    #"Type modifié" = Table.TransformColumnTypes(data_Sheet,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}, {"Column6", type text}, {"Column7", type text}}),
+				    #"En-têtes promus" = Table.PromoteHeaders(#"Type modifié", [PromoteAllScalars=true]),
+				    #"Type modifié1" = Table.TransformColumnTypes(#"En-têtes promus",{{"id", type text}, {"geometry_type", type text}, {"coordonnees", type text}, {"region_nom_bdd", type text}, {"prefecture_nom_bdd", type text}, {"commune_nom_bdd", type text}, {"canton_nom_bdd", type text}}),
+				    #"Duplication de la colonne" = Table.DuplicateColumn(#"Type modifié1", "geometry_type", "geometry_type - Copier"),
+				    #"Colonnes renommées" = Table.RenameColumns(#"Duplication de la colonne",{{"geometry_type - Copier", "Code_pays"}}),
+				    #"Valeur remplacée" = Table.ReplaceValue(#"Colonnes renommées","MultiLineString","TGO",Replacer.ReplaceText,{"Code_pays"})
+				in
+				    #"Valeur remplacée"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

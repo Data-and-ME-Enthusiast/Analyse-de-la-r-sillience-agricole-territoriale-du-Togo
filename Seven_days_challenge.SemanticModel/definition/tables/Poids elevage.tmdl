@@ -1,0 +1,28 @@
+table 'Poids elevage'
+	lineageTag: 796de2f3-360c-4d9a-a1f5-38d5770bb17c
+
+	measure 'Valeur Poids elevage' = SELECTEDVALUE('Poids elevage'[Poids elevage])
+		lineageTag: f4605282-1009-4560-a3ee-13c131834066
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Poids elevage'
+		lineageTag: 21b530ff-2d5b-40ac-b62e-9d76fb65f2d5
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Poids elevage' = calculated
+		mode: import
+		source = GENERATESERIES(0, 1, 0.05)
+
+	annotation PBI_Id = 2b5b0d3f134847a689c54e98477ec665
+

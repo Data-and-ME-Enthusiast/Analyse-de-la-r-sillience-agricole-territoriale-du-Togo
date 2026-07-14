@@ -1,0 +1,83 @@
+table agriculture-sylviculture-et-peche-valeur-ajoutee-en-dollars-us-constants-de-2015
+	lineageTag: d503c42e-0f75-4c3b-8651-20cb968e8ca6
+
+	column indicator
+		dataType: string
+		lineageTag: 50cd3c89-a690-49c8-9443-d6426458a0df
+		summarizeBy: none
+		sourceColumn: indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column date
+		dataType: int64
+		formatString: 0
+		lineageTag: cb7bebd7-e2f4-49b2-a492-5127a81d57ce
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+	column value
+		dataType: double
+		lineageTag: 4e4fd830-8735-494f-bf52-259a0cefcb28
+		summarizeBy: sum
+		sourceColumn: value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column unit
+		dataType: string
+		lineageTag: 97dab228-024c-40c1-8edc-865356809116
+		summarizeBy: none
+		sourceColumn: unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column obs_status
+		dataType: string
+		lineageTag: aed851e1-3c79-4bca-a47e-4c1d255a2b86
+		summarizeBy: none
+		sourceColumn: obs_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column decimal
+		dataType: int64
+		formatString: 0
+		lineageTag: 6b5ca188-54d4-461b-831d-ecefe6f6e123
+		summarizeBy: sum
+		sourceColumn: decimal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code_pays
+		dataType: string
+		lineageTag: 55ea843e-e0ac-4057-82de-f815eac3344c
+		summarizeBy: none
+		sourceColumn: Code_pays
+
+		annotation SummarizationSetBy = Automatic
+
+	partition agriculture-sylviculture-et-peche-valeur-ajoutee-en-dollars-us-constants-de-2015 = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\MJ\MJ_consulting\Data community Togo\sept_joursC\agriculture-sylviculture-et-peche-valeur-ajoutee-en-dollars-us-constants-de-2015-.csv"),[Delimiter=",", Columns=8, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"En-têtes promus" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Type modifié" = Table.TransformColumnTypes(#"En-têtes promus",{{"indicator", type text}, {"country", type text}, {"countryiso3code", type text}, {"date", Int64.Type}, {"value", type text}, {"unit", type text}, {"obs_status", type text}, {"decimal", Int64.Type}}),
+				    #"Colonnes supprimées" = Table.RemoveColumns(#"Type modifié",{"country", "countryiso3code"}),
+				    #"Valeur remplacée" = Table.ReplaceValue(#"Colonnes supprimées",".",",",Replacer.ReplaceText,{"value"}),
+				    #"Type modifié1" = Table.TransformColumnTypes(#"Valeur remplacée",{{"value", type number}}),
+				    #"Duplication de la colonne" = Table.DuplicateColumn(#"Type modifié1", "obs_status", "obs_status - Copier"),
+				    #"Colonnes renommées" = Table.RenameColumns(#"Duplication de la colonne",{{"obs_status - Copier", "Code_pays"}}),
+				    #"Valeur remplacée1" = Table.ReplaceValue(#"Colonnes renommées","","TGO",Replacer.ReplaceValue,{"Code_pays"})
+				in
+				    #"Valeur remplacée1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

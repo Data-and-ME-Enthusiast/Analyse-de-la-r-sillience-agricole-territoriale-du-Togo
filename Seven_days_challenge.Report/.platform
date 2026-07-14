@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Seven_days_challenge"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "e1b1ac8d-fbfd-480e-98a4-8ee286b457f0"
+  }
+}

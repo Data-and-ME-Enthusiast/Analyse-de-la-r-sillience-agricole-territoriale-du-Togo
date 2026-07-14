@@ -1,0 +1,28 @@
+table 'Poids potentiel'
+	lineageTag: 4f63cf94-2716-4c81-a1ec-34cd34980e65
+
+	measure 'Valeur Poids potentiel' = SELECTEDVALUE('Poids potentiel'[Poids potentiel], 0.4)
+		lineageTag: 617dff6b-a260-4481-826e-1b9606f7a4a2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Poids potentiel'
+		lineageTag: 066f4100-2936-437e-a46d-9534a0ef419c
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Poids potentiel' = calculated
+		mode: import
+		source = GENERATESERIES(0, 1, 0.05)
+
+	annotation PBI_Id = 275bea86bff14d20996ce0b73bab5818
+

@@ -1,0 +1,114 @@
+table zone_pisciculture
+	lineageTag: 8a47697c-3a25-44e2-88bd-74f0ee11e103
+
+	measure Nbr_zone_pisciculture = COUNTROWS(zone_pisciculture)
+		formatString: 0
+		lineageTag: 3ff72bc1-6c73-4c5b-82f2-f6179e3c4b56
+
+	column id
+		dataType: string
+		lineageTag: 8c69b209-1dd1-4915-bcb6-cd9e70e1425e
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column geometry_type
+		dataType: string
+		lineageTag: 95cf0221-c6ae-4586-ab07-a75646de7330
+		summarizeBy: none
+		sourceColumn: geometry_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column coordonnees
+		dataType: string
+		lineageTag: 678cd833-488f-4227-9cdf-c000ed3563b9
+		summarizeBy: none
+		sourceColumn: coordonnees
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_nom_bdd
+		dataType: string
+		lineageTag: f69e2820-061e-467c-8add-67808e0ffe4b
+		summarizeBy: none
+		sourceColumn: region_nom_bdd
+
+		annotation SummarizationSetBy = Automatic
+
+	column prefecture_nom_bdd
+		dataType: string
+		lineageTag: 2ddad38f-c9cc-4cf2-89ce-040489c01dfe
+		summarizeBy: none
+		sourceColumn: prefecture_nom_bdd
+
+		annotation SummarizationSetBy = Automatic
+
+	column commune_nom_bdd
+		dataType: string
+		lineageTag: 27172ac6-f612-4005-ad5a-e3f85c143b70
+		summarizeBy: none
+		sourceColumn: commune_nom_bdd
+
+		annotation SummarizationSetBy = Automatic
+
+	column canton_nom_bdd
+		dataType: string
+		lineageTag: e0592f3b-3433-4980-b308-838b8def08d8
+		summarizeBy: none
+		sourceColumn: canton_nom_bdd
+
+		annotation SummarizationSetBy = Automatic
+
+	column etab_adr
+		dataType: string
+		lineageTag: 2a044969-52e1-4c6c-8280-bf3f48a47509
+		summarizeBy: none
+		sourceColumn: etab_adr
+
+		annotation SummarizationSetBy = Automatic
+
+	column ouverture_jour
+		dataType: string
+		lineageTag: 2333b1e8-c144-46f2-a913-0fdf40c8dce8
+		summarizeBy: none
+		sourceColumn: ouverture_jour
+
+		annotation SummarizationSetBy = Automatic
+
+	column organisme
+		dataType: string
+		lineageTag: 6504b5c5-456b-4b00-99df-225b9a6546ad
+		summarizeBy: none
+		sourceColumn: organisme
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code_pays
+		dataType: string
+		lineageTag: 79a0d5e3-9c58-4e02-8762-3e503d03012e
+		summarizeBy: none
+		sourceColumn: Code_pays
+
+		annotation SummarizationSetBy = Automatic
+
+	partition zone_pisciculture = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\MJ\MJ_consulting\Data community Togo\sept_joursC\file-Zones de pisciculture-30-06-2026 16_38_01.xlsx"), null, true),
+				    zone_pisciculture_Sheet = Source{[Item="zone_pisciculture",Kind="Sheet"]}[Data],
+				    #"Type modifié" = Table.TransformColumnTypes(zone_pisciculture_Sheet,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}, {"Column6", type text}, {"Column7", type text}, {"Column8", type text}, {"Column9", type text}, {"Column10", type text}}),
+				    #"En-têtes promus" = Table.PromoteHeaders(#"Type modifié", [PromoteAllScalars=true]),
+				    #"Type modifié1" = Table.TransformColumnTypes(#"En-têtes promus",{{"id", type text}, {"geometry_type", type text}, {"coordonnees", type text}, {"region_nom_bdd", type text}, {"prefecture_nom_bdd", type text}, {"commune_nom_bdd", type text}, {"canton_nom_bdd", type text}, {"etab_adr", type text}, {"ouverture_jour", type text}, {"organisme", type text}}),
+				    #"Duplication de la colonne" = Table.DuplicateColumn(#"Type modifié1", "geometry_type", "geometry_type - Copier"),
+				    #"Colonnes renommées" = Table.RenameColumns(#"Duplication de la colonne",{{"geometry_type - Copier", "Code_pays"}}),
+				    #"Valeur remplacée" = Table.ReplaceValue(#"Colonnes renommées","MultiPolygon","TGO",Replacer.ReplaceText,{"Code_pays"})
+				in
+				    #"Valeur remplacée"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

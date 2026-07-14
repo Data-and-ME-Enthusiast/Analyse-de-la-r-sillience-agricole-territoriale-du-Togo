@@ -1,0 +1,28 @@
+table 'Poids vul'
+	lineageTag: 1c8b416f-2f34-4226-bf85-89fe0f3bd5b8
+
+	measure 'Valeur Poids vul' = SELECTEDVALUE('Poids vul'[Poids vul], 0.6)
+		lineageTag: 483db5b2-7984-4883-8beb-e9e4f08c25ea
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Poids vul'
+		lineageTag: d2945441-e4f5-4c33-b4d0-296a6cc196d3
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Poids vul' = calculated
+		mode: import
+		source = GENERATESERIES(0, 1, 0.05)
+
+	annotation PBI_Id = bb4f8413c1ae43a28dbb3436e461aaea
+

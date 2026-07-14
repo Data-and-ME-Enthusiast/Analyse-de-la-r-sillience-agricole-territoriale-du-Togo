@@ -1,0 +1,75 @@
+relationship 302593c6-df4d-9846-ff01-0bcbb3386bba
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: abattoirs.canton_nom_bdd
+	toColumn: elevage_etablissement.canton_nom_bdd
+
+relationship bafc5ac8-9209-862b-2239-5957e5f8cfbe
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: agriculture-sylviculture-et-peche-valeur-ajoutee-de-croissance-annuelle-.date
+	toColumn: agriculture-sylviculture-et-peche-valeur-ajoutee-du-pib-.date
+
+relationship f7f46aa6-8df2-3794-c6a2-2a8cb4d02bd1
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: agriculture-sylviculture-et-peche-valeur-ajoutee-du-pib-.date
+	toColumn: agriculture-sylviculture-et-peche-valeur-ajoutee-en-dollars-us-constants-de-2015.date
+
+relationship 9e11395b-31ff-8756-74c8-2a1e022c05c7
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: agriculture-sylviculture-et-peche-valeur-ajoutee-en-dollars-us-constants-de-2015.date
+	toColumn: agriculture-sylviculture-et-peche-valeur-ajoutee-par-travailleur-en-dollars-cons.date
+
+relationship ba26e948-640b-664c-1c6b-f2a56fbf0d06
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: agriculture-sylviculture-et-peche-valeur-ajoutee-par-travailleur-en-dollars-cons.date
+	toColumn: 'agriculture rural development i'.year
+
+relationship 17c2cdde-0218-debc-e5fe-554d942ddfb9
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: elevage_etablissement.canton_nom_bdd
+	toColumn: REC.canton_nom_bdd
+
+relationship 5a68e53e-0ba8-786d-e466-ff025cde6205
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: REC.canton_nom_bdd
+	toColumn: zone_pisciculture.canton_nom_bdd
+
+relationship b976dccf-6915-1cb6-d71d-676a626d0c51
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: cantons.canton_nom_bdd
+	toColumn: zone_pisciculture.canton_nom_bdd
+
+relationship c781c38f-78ad-5822-877b-3903d2a924d7
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: cantons.canton_nom_bdd
+	toColumn: REC.canton_nom_bdd
+
+relationship d1a42450-fb22-be9e-d093-470fe5f4159f
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: cantons.canton_nom_bdd
+	toColumn: elevage_etablissement.canton_nom_bdd
+
+relationship 29024adf-255e-1b9c-29ac-7bab2c753356
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: cantons.canton_nom_bdd
+	toColumn: abattoirs.canton_nom_bdd
+
+relationship 827f912c-1c56-a3c9-29f4-6fb19ceae765
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: digues_petits_barrages.canton_nom_bdd
+	toColumn: cantons.canton_nom_bdd
+

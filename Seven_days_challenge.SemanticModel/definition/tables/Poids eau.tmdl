@@ -1,0 +1,28 @@
+table 'Poids eau'
+	lineageTag: 387e7ce2-0eeb-4483-a09c-7be109e3a09c
+
+	measure 'Valeur Poids eau' = SELECTEDVALUE('Poids eau'[Poids eau])
+		lineageTag: 1bc6b90e-ca98-4d51-abe6-e1d6ff74a1f9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Poids eau'
+		lineageTag: 12afe994-9750-406c-8603-7a609bf92a74
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Poids eau' = calculated
+		mode: import
+		source = GENERATESERIES(0, 1, 0.05)
+
+	annotation PBI_Id = 23f337fe03c945869397f724267eda0c
+

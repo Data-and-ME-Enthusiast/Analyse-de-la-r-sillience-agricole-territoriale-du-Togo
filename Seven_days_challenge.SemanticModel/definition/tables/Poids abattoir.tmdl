@@ -1,0 +1,28 @@
+table 'Poids abattoir'
+	lineageTag: e5dda913-146a-44b8-bd7e-c20128b8df87
+
+	measure 'Valeur Poids abattoir' = SELECTEDVALUE('Poids abattoir'[Poids abattoir])
+		lineageTag: 896e1c9b-ccb0-43a8-8c91-61f21f179051
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Poids abattoir'
+		lineageTag: c98a37ae-7176-4c6c-9a7b-7cbec500db15
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Poids abattoir' = calculated
+		mode: import
+		source = GENERATESERIES(0, 1, 0.05)
+
+	annotation PBI_Id = 4278e6570b2e40cba0d050111b37fbd1
+

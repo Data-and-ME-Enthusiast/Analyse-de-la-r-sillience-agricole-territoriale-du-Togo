@@ -1,0 +1,440 @@
+table 'agriculture rural development i'
+	lineageTag: bf9037a9-8b11-4374-b77f-846a46bacb27
+
+	column Code_pays
+		dataType: string
+		lineageTag: 563bc47c-963f-4c58-aaad-aa037be6aafd
+		summarizeBy: none
+		sourceColumn: Code_pays
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: ba73bbcf-5d6d-46e0-b48b-6a9a514aaed9
+		summarizeBy: none
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fertilizer consumption (% of fertilizer production)'
+		dataType: double
+		lineageTag: 72e82a8c-3d04-4157-8627-d2866a3ce4a7
+		summarizeBy: sum
+		sourceColumn: Fertilizer consumption (% of fertilizer production)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Fertilizer consumption (kilograms per hectare of arable land)'
+		dataType: double
+		lineageTag: 37235f6d-7360-432f-89df-1c965d2735b2
+		summarizeBy: sum
+		sourceColumn: Fertilizer consumption (kilograms per hectare of arable land)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Agricultural land (sq. km)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 39497460-9020-4401-80d1-da42fd5a00ea
+		summarizeBy: sum
+		sourceColumn: Agricultural land (sq. km)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Agricultural land (% of land area)'
+		dataType: double
+		lineageTag: ca39ed7f-6cf3-41f6-b310-77e2ab4532b5
+		summarizeBy: sum
+		sourceColumn: Agricultural land (% of land area)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Arable land (hectares)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 11834724-68c3-4f01-a69e-f34636bd71e2
+		summarizeBy: sum
+		sourceColumn: Arable land (hectares)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Arable land (hectares per person)'
+		dataType: double
+		lineageTag: fb8a8637-a65c-4c40-88d2-b924bdfb0fc0
+		summarizeBy: sum
+		sourceColumn: Arable land (hectares per person)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Arable land (% of land area)'
+		dataType: double
+		lineageTag: 8046c23a-41fc-4396-bc6e-2df0777f45da
+		summarizeBy: sum
+		sourceColumn: Arable land (% of land area)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Land under cereal production (hectares)'
+		dataType: int64
+		formatString: 0
+		lineageTag: f7c96ace-d71d-4173-8127-12fce4c0fd25
+		summarizeBy: sum
+		sourceColumn: Land under cereal production (hectares)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Permanent cropland (% of land area)'
+		dataType: double
+		lineageTag: a34b1c45-d637-448f-b3a7-c5af9fde0729
+		summarizeBy: sum
+		sourceColumn: Permanent cropland (% of land area)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Rural land area where elevation is below 5 meters (sq. km)'
+		dataType: double
+		lineageTag: c4f271e5-e871-445c-85df-47cef1f96156
+		summarizeBy: sum
+		sourceColumn: Rural land area where elevation is below 5 meters (sq. km)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Rural land area where elevation is below 5 meters (% of total land area)'
+		dataType: double
+		lineageTag: 9309f47e-db75-4627-82fb-5e1d438e11d7
+		summarizeBy: sum
+		sourceColumn: Rural land area where elevation is below 5 meters (% of total land area)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Forest area (sq. km)'
+		dataType: double
+		lineageTag: d4d2e624-c4e2-429e-b3cd-913b1a0a88f4
+		summarizeBy: sum
+		sourceColumn: Forest area (sq. km)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Forest area (% of land area)'
+		dataType: double
+		lineageTag: d3da1aad-c4e4-4951-9320-57e710bf1606
+		summarizeBy: sum
+		sourceColumn: Forest area (% of land area)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Average precipitation in depth (mm per year)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 34981035-05ed-4669-9751-2e91f526ba95
+		summarizeBy: sum
+		sourceColumn: Average precipitation in depth (mm per year)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Land area (sq. km)'
+		dataType: int64
+		formatString: 0
+		lineageTag: d08e53b5-80e7-4372-bb90-b91e88b96d90
+		summarizeBy: sum
+		sourceColumn: Land area (sq. km)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Rural land area (sq. km)'
+		dataType: double
+		lineageTag: 1f6a4115-c478-406c-8232-075f8b64cf3b
+		summarizeBy: sum
+		sourceColumn: Rural land area (sq. km)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Cereal production (metric tons)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6b7b9aa1-b5da-40b2-be97-d5d5d1ccfea9
+		summarizeBy: sum
+		sourceColumn: Cereal production (metric tons)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Crop production index (2014-2016 = 100)'
+		dataType: double
+		lineageTag: aaf17516-066d-4774-a370-2f8d621db1ec
+		summarizeBy: sum
+		sourceColumn: Crop production index (2014-2016 = 100)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Food production index (2014-2016 = 100)'
+		dataType: double
+		lineageTag: 3700bccf-997c-4491-b2c1-6805870827ae
+		summarizeBy: sum
+		sourceColumn: Food production index (2014-2016 = 100)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Livestock production index (2014-2016 = 100)'
+		dataType: double
+		lineageTag: 5a911070-6db0-4c35-9aff-ae66f177f840
+		summarizeBy: sum
+		sourceColumn: Livestock production index (2014-2016 = 100)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Surface area (sq. km)'
+		dataType: int64
+		formatString: 0
+		lineageTag: b8474ebf-ddcf-473f-8825-e0aa05eb185f
+		summarizeBy: sum
+		sourceColumn: Surface area (sq. km)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cereal yield (kg per hectare)'
+		dataType: double
+		lineageTag: e9a4c3c1-2a74-4744-9758-5f2ae061bf6e
+		summarizeBy: sum
+		sourceColumn: Cereal yield (kg per hectare)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Access to electricity, rural (% of rural population)'
+		dataType: double
+		lineageTag: 01641df9-6ba4-4f70-a7f0-fd6b33825d26
+		summarizeBy: sum
+		sourceColumn: Access to electricity, rural (% of rural population)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Rural population living in areas where elevation is below 5 meters (% of total population)'
+		dataType: double
+		lineageTag: 93823c53-b30e-4383-8932-c1111ba4ccc2
+		summarizeBy: sum
+		sourceColumn: Rural population living in areas where elevation is below 5 meters (% of total population)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Annual freshwater withdrawals, agriculture (% of total freshwater withdrawal)'
+		dataType: double
+		lineageTag: c478d220-0212-45ce-a61e-06675248c3ae
+		summarizeBy: sum
+		sourceColumn: Annual freshwater withdrawals, agriculture (% of total freshwater withdrawal)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Agriculture, forestry, and fishing, value added (current US$)'
+		dataType: double
+		lineageTag: d3fea2ea-7e7e-473b-80fb-9ffeba78022f
+		summarizeBy: sum
+		sourceColumn: Agriculture, forestry, and fishing, value added (current US$)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Agriculture, forestry, and fishing, value added (% of GDP)'
+		dataType: double
+		lineageTag: 6b5b6c25-0381-48af-97bd-412fc69ce499
+		summarizeBy: sum
+		sourceColumn: Agriculture, forestry, and fishing, value added (% of GDP)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Employment in agriculture, female (% of female employment) (modeled ILO estimate)'
+		dataType: double
+		lineageTag: f5150178-4d37-44e9-b685-c257236d4ac8
+		summarizeBy: sum
+		sourceColumn: Employment in agriculture, female (% of female employment) (modeled ILO estimate)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Employment in agriculture, male (% of male employment) (modeled ILO estimate)'
+		dataType: double
+		lineageTag: ee611f49-2e74-4d9b-af06-18d9942d1aca
+		summarizeBy: sum
+		sourceColumn: Employment in agriculture, male (% of male employment) (modeled ILO estimate)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Employment in agriculture (% of total employment) (modeled ILO estimate)'
+		dataType: double
+		lineageTag: 6c65e3c9-faea-42e2-a218-d6b513987cff
+		summarizeBy: sum
+		sourceColumn: Employment in agriculture (% of total employment) (modeled ILO estimate)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Rural population'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2a433eb5-136e-4881-9e95-e3390229d694
+		summarizeBy: sum
+		sourceColumn: Rural population
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Rural population growth (annual %)'
+		dataType: double
+		lineageTag: df74bfee-6e36-457b-924b-0e668491ad0b
+		summarizeBy: sum
+		sourceColumn: Rural population growth (annual %)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Rural population (% of total population)'
+		dataType: double
+		lineageTag: a9cbf63e-fbd7-434b-9d50-2682a53ffc40
+		summarizeBy: sum
+		sourceColumn: Rural population (% of total population)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Agricultural raw materials imports (% of merchandise imports)'
+		dataType: double
+		lineageTag: 66d6d5dc-5686-4a59-ab2d-2a05b8050480
+		summarizeBy: sum
+		sourceColumn: Agricultural raw materials imports (% of merchandise imports)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Agricultural raw materials exports (% of merchandise exports)'
+		dataType: double
+		lineageTag: 8b9493e3-5a8e-40aa-83e6-15ddd373ee2b
+		summarizeBy: sum
+		sourceColumn: Agricultural raw materials exports (% of merchandise exports)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Economically active population in agriculture (number)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 366d887d-a80e-4560-8f4e-fdbe2c1e0a1a
+		summarizeBy: sum
+		sourceColumn: Economically active population in agriculture (number)
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'agriculture rural development i' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\MJ\MJ_consulting\Data community Togo\sept_joursC\agriculture-rural-development-indicators_vrai.xlsx"), null, true),
+				    #"agriculture rural development i_Sheet" = Source{[Item="agriculture rural development i",Kind="Sheet"]}[Data],
+				    #"En-têtes promus" = Table.PromoteHeaders(#"agriculture rural development i_Sheet", [PromoteAllScalars=true]),
+				    #"Type modifié" = Table.TransformColumnTypes(#"En-têtes promus",{{"Code_pays", type text}, {"year", Int64.Type}, {"Fertilizer consumption (% of fertilizer production)", type text}, {"Fertilizer consumption (kilograms per hectare of arable land)", type text}, {"Agricultural land (sq. km)", Int64.Type}, {"Agricultural land (% of land area)", type text}, {"Arable land (hectares)", Int64.Type}, {"Arable land (hectares per person)", type text}, {"Arable land (% of land area)", type text}, {"Land under cereal production (hectares)", Int64.Type}, {"Permanent cropland (% of land area)", type text}, {"Rural land area where elevation is below 5 meters (sq. km)", type text}, {"Rural land area where elevation is below 5 meters (% of total land area)", type text}, {"Forest area (sq. km)", type text}, {"Forest area (% of land area)", type text}, {"Average precipitation in depth (mm per year)", Int64.Type}, {"Land area (sq. km)", Int64.Type}, {"Rural land area (sq. km)", type text}, {"Cereal production (metric tons)", Int64.Type}, {"Crop production index (2014-2016 = 100)", type text}, {"Food production index (2014-2016 = 100)", type text}, {"Livestock production index (2014-2016 = 100)", type text}, {"Surface area (sq. km)", Int64.Type}, {"Cereal yield (kg per hectare)", type text}, {"Access to electricity, rural (% of rural population)", type text}, {"Rural population living in areas where elevation is below 5 meters (% of total population)", type text}, {"Annual freshwater withdrawals, agriculture (% of total freshwater withdrawal)", type text}, {"Agriculture, forestry, and fishing, value added (current US$)", type text}, {"Agriculture, forestry, and fishing, value added (% of GDP)", type text}, {"Employment in agriculture, female (% of female employment) (modeled ILO estimate)", type text}, {"Employment in agriculture, male (% of male employment) (modeled ILO estimate)", type text}, {"Employment in agriculture (% of total employment) (modeled ILO estimate)", type text}, {"Rural population", Int64.Type}, {"Rural population growth (annual %)", type text}, {"Rural population (% of total population)", type text}, {"Agricultural raw materials imports (% of merchandise imports)", type text}, {"Agricultural raw materials exports (% of merchandise exports)", type text}, {"Economically active population in agriculture (number)", Int64.Type}}),
+				    #"Valeur remplacée" = Table.ReplaceValue(#"Type modifié",".",",",Replacer.ReplaceText,{"Fertilizer consumption (% of fertilizer production)"}),
+				    #"Type modifié1" = Table.TransformColumnTypes(#"Valeur remplacée",{{"Fertilizer consumption (% of fertilizer production)", type number}}),
+				    #"Valeur remplacée1" = Table.ReplaceValue(#"Type modifié1",".",",",Replacer.ReplaceText,{"Fertilizer consumption (kilograms per hectare of arable land)"}),
+				    #"Type modifié2" = Table.TransformColumnTypes(#"Valeur remplacée1",{{"Fertilizer consumption (kilograms per hectare of arable land)", type number}}),
+				    #"Valeur remplacée2" = Table.ReplaceValue(#"Type modifié2",".",",",Replacer.ReplaceText,{"Agricultural land (% of land area)"}),
+				    #"Type modifié3" = Table.TransformColumnTypes(#"Valeur remplacée2",{{"Agricultural land (% of land area)", type number}}),
+				    #"Valeur remplacée3" = Table.ReplaceValue(#"Type modifié3",".",",",Replacer.ReplaceText,{"Arable land (hectares per person)"}),
+				    #"Type modifié4" = Table.TransformColumnTypes(#"Valeur remplacée3",{{"Arable land (hectares per person)", type number}}),
+				    #"Valeur remplacée4" = Table.ReplaceValue(#"Type modifié4",".",",",Replacer.ReplaceText,{"Arable land (% of land area)"}),
+				    #"Type modifié5" = Table.TransformColumnTypes(#"Valeur remplacée4",{{"Arable land (% of land area)", type number}}),
+				    #"Valeur remplacée5" = Table.ReplaceValue(#"Type modifié5",".",",",Replacer.ReplaceText,{"Permanent cropland (% of land area)"}),
+				    #"Type modifié6" = Table.TransformColumnTypes(#"Valeur remplacée5",{{"Permanent cropland (% of land area)", type number}}),
+				    #"Valeur remplacée6" = Table.ReplaceValue(#"Type modifié6",".",",",Replacer.ReplaceText,{"Rural land area where elevation is below 5 meters (sq. km)"}),
+				    #"Type modifié7" = Table.TransformColumnTypes(#"Valeur remplacée6",{{"Rural land area where elevation is below 5 meters (sq. km)", type number}}),
+				    #"Valeur remplacée7" = Table.ReplaceValue(#"Type modifié7",".",",",Replacer.ReplaceText,{"Rural land area where elevation is below 5 meters (% of total land area)"}),
+				    #"Type modifié8" = Table.TransformColumnTypes(#"Valeur remplacée7",{{"Rural land area where elevation is below 5 meters (% of total land area)", type number}}),
+				    #"Valeur remplacée8" = Table.ReplaceValue(#"Type modifié8",".",",",Replacer.ReplaceText,{"Forest area (sq. km)"}),
+				    #"Type modifié9" = Table.TransformColumnTypes(#"Valeur remplacée8",{{"Forest area (sq. km)", type number}}),
+				    #"Valeur remplacée9" = Table.ReplaceValue(#"Type modifié9",".",",",Replacer.ReplaceText,{"Forest area (% of land area)"}),
+				    #"Type modifié10" = Table.TransformColumnTypes(#"Valeur remplacée9",{{"Forest area (% of land area)", type number}}),
+				    #"Valeur remplacée10" = Table.ReplaceValue(#"Type modifié10",".",",",Replacer.ReplaceText,{"Rural land area (sq. km)"}),
+				    #"Type modifié11" = Table.TransformColumnTypes(#"Valeur remplacée10",{{"Rural land area (sq. km)", type number}}),
+				    #"Valeur remplacée11" = Table.ReplaceValue(#"Type modifié11",".",",",Replacer.ReplaceText,{"Crop production index (2014-2016 = 100)"}),
+				    #"Type modifié12" = Table.TransformColumnTypes(#"Valeur remplacée11",{{"Crop production index (2014-2016 = 100)", type number}}),
+				    #"Valeur remplacée12" = Table.ReplaceValue(#"Type modifié12",".",",",Replacer.ReplaceText,{"Food production index (2014-2016 = 100)"}),
+				    #"Type modifié13" = Table.TransformColumnTypes(#"Valeur remplacée12",{{"Food production index (2014-2016 = 100)", type number}}),
+				    #"Valeur remplacée13" = Table.ReplaceValue(#"Type modifié13",".",",",Replacer.ReplaceText,{"Livestock production index (2014-2016 = 100)"}),
+				    #"Type modifié14" = Table.TransformColumnTypes(#"Valeur remplacée13",{{"Livestock production index (2014-2016 = 100)", type number}}),
+				    #"Valeur remplacée14" = Table.ReplaceValue(#"Type modifié14",".",",",Replacer.ReplaceText,{"Cereal yield (kg per hectare)"}),
+				    #"Type modifié15" = Table.TransformColumnTypes(#"Valeur remplacée14",{{"Cereal yield (kg per hectare)", type number}}),
+				    #"Valeur remplacée15" = Table.ReplaceValue(#"Type modifié15",".",",",Replacer.ReplaceText,{"Access to electricity, rural (% of rural population)"}),
+				    #"Type modifié16" = Table.TransformColumnTypes(#"Valeur remplacée15",{{"Access to electricity, rural (% of rural population)", type number}}),
+				    #"Valeur remplacée16" = Table.ReplaceValue(#"Type modifié16",".",",",Replacer.ReplaceText,{"Rural population living in areas where elevation is below 5 meters (% of total population)"}),
+				    #"Type modifié17" = Table.TransformColumnTypes(#"Valeur remplacée16",{{"Rural population living in areas where elevation is below 5 meters (% of total population)", type number}}),
+				    #"Valeur remplacée17" = Table.ReplaceValue(#"Type modifié17",".",",",Replacer.ReplaceText,{"Annual freshwater withdrawals, agriculture (% of total freshwater withdrawal)"}),
+				    #"Type modifié18" = Table.TransformColumnTypes(#"Valeur remplacée17",{{"Annual freshwater withdrawals, agriculture (% of total freshwater withdrawal)", type number}}),
+				    #"Valeur remplacée18" = Table.ReplaceValue(#"Type modifié18",".",",",Replacer.ReplaceText,{"Agriculture, forestry, and fishing, value added (current US$)"}),
+				    #"Type modifié19" = Table.TransformColumnTypes(#"Valeur remplacée18",{{"Agriculture, forestry, and fishing, value added (current US$)", type number}}),
+				    #"Valeur remplacée19" = Table.ReplaceValue(#"Type modifié19",".",",",Replacer.ReplaceText,{"Agriculture, forestry, and fishing, value added (% of GDP)"}),
+				    #"Type modifié20" = Table.TransformColumnTypes(#"Valeur remplacée19",{{"Agriculture, forestry, and fishing, value added (% of GDP)", type number}}),
+				    #"Valeur remplacée20" = Table.ReplaceValue(#"Type modifié20",".",",",Replacer.ReplaceText,{"Employment in agriculture, female (% of female employment) (modeled ILO estimate)"}),
+				    #"Type modifié21" = Table.TransformColumnTypes(#"Valeur remplacée20",{{"Employment in agriculture, female (% of female employment) (modeled ILO estimate)", type number}}),
+				    #"Valeur remplacée21" = Table.ReplaceValue(#"Type modifié21",".",",",Replacer.ReplaceText,{"Employment in agriculture, male (% of male employment) (modeled ILO estimate)"}),
+				    #"Type modifié22" = Table.TransformColumnTypes(#"Valeur remplacée21",{{"Employment in agriculture, male (% of male employment) (modeled ILO estimate)", type number}}),
+				    #"Valeur remplacée22" = Table.ReplaceValue(#"Type modifié22",".",",",Replacer.ReplaceText,{"Employment in agriculture (% of total employment) (modeled ILO estimate)"}),
+				    #"Type modifié23" = Table.TransformColumnTypes(#"Valeur remplacée22",{{"Employment in agriculture (% of total employment) (modeled ILO estimate)", type number}}),
+				    #"Valeur remplacée23" = Table.ReplaceValue(#"Type modifié23",".",",",Replacer.ReplaceText,{"Rural population growth (annual %)"}),
+				    #"Type modifié24" = Table.TransformColumnTypes(#"Valeur remplacée23",{{"Rural population growth (annual %)", type number}}),
+				    #"Valeur remplacée24" = Table.ReplaceValue(#"Type modifié24",".",",",Replacer.ReplaceText,{"Rural population (% of total population)"}),
+				    #"Type modifié25" = Table.TransformColumnTypes(#"Valeur remplacée24",{{"Rural population (% of total population)", type number}}),
+				    #"Valeur remplacée25" = Table.ReplaceValue(#"Type modifié25",".",",",Replacer.ReplaceText,{"Agricultural raw materials imports (% of merchandise imports)"}),
+				    #"Type modifié26" = Table.TransformColumnTypes(#"Valeur remplacée25",{{"Agricultural raw materials imports (% of merchandise imports)", type number}}),
+				    #"Valeur remplacée26" = Table.ReplaceValue(#"Type modifié26",".",",",Replacer.ReplaceText,{"Agricultural raw materials exports (% of merchandise exports)"}),
+				    #"Type modifié27" = Table.TransformColumnTypes(#"Valeur remplacée26",{{"Agricultural raw materials exports (% of merchandise exports)", type number}})
+				in
+				    #"Type modifié27"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

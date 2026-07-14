@@ -1,0 +1,34 @@
+model Model
+	culture: fr-FR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: fr-FR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["abattoirs","elevage_etablissement","REC","zone_pisciculture","agriculture-sylviculture-et-peche-valeur-ajoutee-de-croissance-annuelle-","agriculture-sylviculture-et-peche-valeur-ajoutee-du-pib-","agriculture-sylviculture-et-peche-valeur-ajoutee-en-dollars-us-constants-de-2015","agriculture-sylviculture-et-peche-valeur-ajoutee-par-travailleur-en-dollars-cons","agriculture rural development i","digues_petits_barrages"]
+
+annotation PBI_ProTooling = ["DaxQueryView_Desktop","DevMode"]
+
+ref table abattoirs
+ref table elevage_etablissement
+ref table REC
+ref table zone_pisciculture
+ref table agriculture-sylviculture-et-peche-valeur-ajoutee-de-croissance-annuelle-
+ref table agriculture-sylviculture-et-peche-valeur-ajoutee-du-pib-
+ref table agriculture-sylviculture-et-peche-valeur-ajoutee-en-dollars-us-constants-de-2015
+ref table agriculture-sylviculture-et-peche-valeur-ajoutee-par-travailleur-en-dollars-cons
+ref table 'agriculture rural development i'
+ref table digues_petits_barrages
+ref table cantons
+ref table 'Poids eau'
+ref table 'Poids abattoir'
+ref table 'Poids elevage'
+ref table 'Poids pisciculture'
+ref table 'Poids vul'
+ref table 'Poids potentiel'
+
+ref cultureInfo fr-FR
+
