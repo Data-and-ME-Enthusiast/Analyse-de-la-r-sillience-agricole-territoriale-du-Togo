@@ -14,18 +14,18 @@ L'Objectif principal du challenge est de concevoir un tableau de bord analytique
 
 Le projet a été mené en trois phases : collecte, préparation et chargement des données (ETL), modélisation des indicateurs et développement du dashboard interactif.
 
-2. Sources de données
+## 2. Sources de données
 Toutes les données proviennent de sources ouvertes et ont été téléchargées en juillet 2026 :
 
 | Thématique | Source | URL |
 |------------|--------|-----|
-| Établissements d'élevage | geodata.gouv.tg | (lien) |
-| Abattoirs | geodata.gouv.tg | (lien) |
-| Zones de pisciculture | geodata.gouv.tg | (lien) |
-| Retenues d'eau collinaires | geodata.gouv.tg | (lien) |
-| Digues et petits barrages | geodata.gouv.tg | (lien) |
-| Données agricoles générales | opendata.gouv.tg | (lien) |
-| Indicateurs économiques (Banque mondiale) | worldbank.org | (liens) |
+| Établissements d'élevage | geodata.gouv.tg | (https://lnkd.in/e9zs3y6V) |
+| Abattoirs | geodata.gouv.tg | (https://lnkd.in/eKtVvJeg) |
+| Zones de pisciculture | geodata.gouv.tg | (https://lnkd.in/e8B4HVNu) |
+| Retenues d'eau collinaires | geodata.gouv.tg | (https://lnkd.in/esMmZSEB) |
+| Digues et petits barrages | geodata.gouv.tg | (https://lnkd.in/e9n_bBEJ) |
+| Agriculture et développment rural | opendata.gouv.tg | (https://lnkd.in/drBXjEA2) |
+| Valeur ajoutée agricole (% du PIB) | worldbank.org | (https://lnkd.in/eS4NqQJU) |
 
 Les données étaient hétérogènes (formats CSV, GeoJSON, Excel) et ont nécessité un important travail de nettoyage et de standardisation.
 
@@ -62,9 +62,16 @@ Notons que la sommes des poids doit donner 1 ou 100%. Le tableau de bord affre u
 
 ### 4.3 Indice d’Investissement (Score de priorité)
 Il combine la vulnérabilité (besoin) et le potentiel économique (opportunité). Vulnérabilité est égal à 1 – IRAT (plus l’IRAT est faible, plus le besoin est grand) et le poids de reéférence attribuer cette dimension est 60%. Potentiel économique est égal à la moyenne des quatre notes normalisées et le poids de référence est 40%. Notons que la sommes des poids doit donner 1 ou 100%. Le tableau de bord affre une possibilité de varier ces poids pour créer des scénario. 
-La formule de l’indice d’investissement se présente comme suit : 
+La formule du score d’investissement se présente comme suit : 
 
 
+Score =λ⋅V+μ⋅P
+
+Avec : 
+- λ=0,60 (poids de la vulnérabilité)
+- μ=0,40 (poids du potentiel économique)
+- V = vulnérabilité du canton
+- P = potentiel économique du canton
 
 ## 5. Résultats marquants
 
@@ -89,9 +96,9 @@ La formule de l’indice d’investissement se présente comme suit :
 
 
 ---------------------------------
-Sanoussi Moudjibou
-  Mail : mjquiet@outlook.fr
-     Tel : +228 92281025 
+Sanoussi Moudjibou  | 
+  Mail : mjquiet@outlook.fr   |
+     Tel : +228 92281025   |
           Analyste statisticien, suivi-évaluateur / Consultant.
 
 
