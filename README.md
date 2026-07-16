@@ -96,10 +96,10 @@ Avec :
 
 
 ---------------------------------
-Sanoussi Moudjibou  | 
-  Mail : mjquiet@outlook.fr   |
-     Tel : +228 92281025   |
-          Analyste statisticien, suivi-évaluateur / Consultant.
+### 📞 Me contacter
+- 📧 **Emails :** mjquiet@outlook.fr | moudjibouomotoyosi19@gmail.com
+- 📞 **Téléphone :** (+228) 92 28 10 25
+- 📍 **Localisation :** Kara, Togo
 
 
 
